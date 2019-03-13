@@ -1,6 +1,6 @@
 package com.company.Flowers;
 
-public class Flower {
+public abstract class Flower {
 
     protected int price;
 

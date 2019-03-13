@@ -6,10 +6,6 @@ public class Rose extends Flower {
         price = 100;
     }
 
-    public int getPrice() {
-        return price;
-    }
-
     @Override
     public String toString() {
         return "Rose";
