@@ -7,6 +7,7 @@ import com.company.Flowers.Tulip;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class FlowerStore {
 
@@ -42,7 +43,8 @@ public class FlowerStore {
     public Flower[] sellSequence(int rose, int chamomile, int tulip) {
         Flower[] flowers = new Flower[rose + chamomile + tulip];
         int counter = 0;
-        for (int i = 0; i < findMax(rose, chamomile, tulip); i++) {
+        int maxNumber = Stream.of(rose, chamomile, tulip).max((p1, p2) -> (p1.compareTo(p2))).get();
+        for (int i = 0; i <  maxNumber; i++) {
             if (i < rose) {
                 flowers[counter] = new Rose();
                 wallet = flowers[counter++].getPrice();
@@ -57,16 +59,6 @@ public class FlowerStore {
             }
         }
         return flowers;
-    }
-
-    private int findMax(int numb1, int numb2, int numb3) {
-        if (numb1 < numb2) {
-            numb1 = numb2;
-        }
-        if (numb1 < numb3) {
-            numb1 = numb3;
-        }
-        return numb1;
     }
 }
 
